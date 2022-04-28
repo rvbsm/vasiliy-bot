@@ -1,9 +1,9 @@
 module.exports = async ctx => {
   const vars = {
-    first_name : ctx.from.first_name,
-    last_name : ctx.from.last_name || "",
-    username : ctx.from.username || "",
-    id : ctx.from.id,
+    first_name : ctx.message.new_chat_participant ? ctx.message.new_chat_participant.first_name : ctx.from.first_name,
+    last_name : ctx.message.new_chat_participant ? ctx.message.new_chat_participant.last_name || "" : ctx.from.last_name || "",
+    username : ctx.message.new_chat_participant ? ctx.message.new_chat_participant.username || "" : ctx.from.username || "",
+    id : ctx.message.new_chat_participant ? ctx.message.new_chat_participant.id : ctx.from.id,
     first: ctx.message.text.split(' ')[1] || "",
     second: ctx.message.text.split(' ')[2] || "",
     third: ctx.message.text.split(' ')[3] || "",
@@ -28,5 +28,5 @@ module.exports = async ctx => {
   })
   if (!message) return
 
-  return await ctx.reply(message.replace(/\$(\w+)/g, (_, name) => vars[name] || '$' + name), {reply_to_message_id: ctx.message.message_id, entities: entities})
+  return await ctx.replyWithMarkdownV2(message.replace(/\$(\w+)/g, (_, name) => vars[name] || '$' + name), {reply_to_message_id: ctx.message.message_id, entities: entities})
 }

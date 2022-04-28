@@ -23,12 +23,12 @@ const bot = new Telegraf(process.env.BOT_TOKEN, { telegram: { webhookReply: fals
 
 
 bot.use(Composer.groupChat(async (ctx, next) => {
-  const user = await updateUser(ctx)
   const chat = await updateChat(ctx,cfg)
   if (chat.language_code !== ctx.i18n.locale()) {
     user.language_code = chat.language_code
     ctx.i18n.locale(chat.language_code)
   }
+  const user = await updateUser(ctx)
   user.save()
   chat.save()
   await next(ctx)

@@ -1,7 +1,7 @@
 const cfg = require("../config")
 
 module.exports = async ctx => {
-  if (ctx.chat.type === "private") return await ctx.reply(ctx.i18n.t("cmd.help.msg", { add: cfg.command.add, rem: cfg.command.rem, list: cfg.command.list }))
+  if (ctx.chat.type === "private") return await ctx.replyWithMarkdownV2(ctx.i18n.t("cmd.help.msg", { add: cfg.command.add, rem: cfg.command.rem, list: cfg.command.list }))
   else {
     const chat = await ctx.db.chat.findOne({ id: ctx.chat.id })
     if (!chat) return
@@ -13,6 +13,6 @@ module.exports = async ctx => {
 
     const help = chat.commands_response.get("help")
     const help_entities = chat.commands_entities.get("help")
-    return await ctx.replyWithHTML(help)
+    return await ctx.replyWithMarkdownV2(help, { entities: help_entities })
   }
 }
