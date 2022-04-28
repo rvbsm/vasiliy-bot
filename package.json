@@ -1,0 +1,33 @@
+{
+  "name": "vasiliy-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev-start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rvbsm/vasiliy-bot.git"
+  },
+  "keywords": [
+    "telegram",
+    "bot"
+  ],
+  "author": "rvbsm (Ruslan Mykhailenko)",
+  "license": "GPL-3.0-only",
+  "bugs": {
+    "url": "https://github.com/rvbsm/vasiliy-bot/issues"
+  },
+  "homepage": "https://github.com/rvbsm/vasiliy-bot#readme",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "mongoose": "^6.3.1",
+    "telegraf": "^4.7.0",
+    "telegraf-i18n": "^6.6.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}

@@ -1,0 +1,26 @@
+language_name: 🇺🇸 English
+cmd:
+  start:
+    msg: 
+      private: Add me to your group!
+      group: Hi!
+  help:
+    msg: |
+      /help - Show this message
+      /help default - for default /help command
+
+      /${add} <b>command</b> <b>message</b> - <i>add command to the list</i>
+      /${rem} <b>command</b> - <i>remove command from the list</i>
+      /${list} - <i>list of commands</i>
+  invite:
+    msg: |
+      <b>Hello, $first_name!</b>
+  list:
+    msg: "List of commands:"
+    empty: "No commands available"
+  add:
+    success: Command <code>!${cmd}</code> added
+    error: /${cmd} <b>command</b> <b>message</b>
+  rem:
+    success: Command <code>!${cmd}</code> removed
+    error: /${cmd} <b>command</b> <i>or no command in the list</i>
