@@ -13,6 +13,6 @@ module.exports = async ctx => {
 
     const help = chat.commands_response.get("help")
     const help_entities = chat.commands_entities.get("help")
-    return await ctx.replyWithMarkdownV2(help, { entities: help_entities })
+    return await ctx.reply(help, { entities: help_entities })
   }
 }

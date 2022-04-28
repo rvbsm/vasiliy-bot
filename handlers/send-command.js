@@ -27,6 +27,6 @@ module.exports = async ctx => {
     return result
   })
   if (!message) return
-
-  return await ctx.replyWithMarkdownV2(message.replace(/\$(\w+)/g, (_, name) => vars[name] || '$' + name), {reply_to_message_id: ctx.message.message_id, entities: entities})
+  
+  return await ctx.reply(message.replace(/\$(\w+)/g, (_, name) => vars[name] || '$' + name), {reply_to_message_id: ctx.message.message_id, entities: entities})
 }

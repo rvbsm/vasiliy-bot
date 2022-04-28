@@ -9,15 +9,15 @@ cmd:
       support: Support
   help:
     msg: |
-      /help \\- Show this message
-      /help default \\- for default /help command
+      /help - Show this message
+      /help default - for default /help command
 
-      /${add} *command message* \\- _add/edit command to the list_
-      /${rem} *command* \\- _remove command from the list_
-      /${list} \\- _list of commands_
+      /${add} command message - add/edit command to the list
+      /${rem} command - remove command from the list
+      /${list} - list of commands
   invite:
     msg: |
-      *Hello, $first_name\\!*
+      Hello, $first_name!
   list:
     msg: "List of commands:"
     empty: "No commands available"
