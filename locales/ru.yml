@@ -4,6 +4,9 @@ cmd:
     msg:
       private: Добавь меня в свою группу!
       group: Привет!
+    btn:
+      add: Добавить
+      support: Поддержка
   help:
     msg: |
       /help - Показать это сообщение

@@ -4,6 +4,9 @@ cmd:
     msg: 
       private: Add me to your group!
       group: Hi!
+    btn:
+      add: Add
+      support: Support
   help:
     msg: |
       /help - Show this message
