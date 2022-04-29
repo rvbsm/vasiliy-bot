@@ -3,7 +3,7 @@ module.exports = {
     add : "add",
     remove : "rem",
     list: "list",
-    prefix: "prefix",
+    // prefix: "prefix",
   },
   ignore_updates: [
     "channel_post", 

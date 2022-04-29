@@ -49,12 +49,14 @@ bot.action(/^set_language:(.+)$/, handleLang)
 
 bot.filter(async ctx => ctx.chat.type !== "private")
 .on("new_chat_members", async ctx => {
-  ctx.message.text = "!invite"
-  handleCommand(ctx)
+  if (!ctx.message.new_chat_member.is_bot) {
+    ctx.message.text = "!invite"
+    handleCommand(ctx)
+  }
 })
 .command([cfg.command.add,cfg.command.remove], handleEditCommand)
 .command(cfg.command.list, handleListCommands)
-.command(cfg.command.prefix, handleCommand)
+// .command(cfg.command.prefix, handleCommand)
 .hears(/!(.+)/, handleCommand)
 
 

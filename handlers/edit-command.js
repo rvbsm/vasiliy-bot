@@ -13,7 +13,7 @@ module.exports = async ctx => {
   if (action === "add") {
     if (!text) return await ctx.replyWithHTML(ctx.i18n.t("cmd.add.error", { cmd: action }))
     chat.commands_response.set(command, text)
-    const entities = ctx.message.entities.map(e => e.offset-6-command.length >= 0 ? {offset: e.offset-6-command.length, length: e.length, type: e.type} : null)
+    const entities = ctx.message.entities.map(e => e.offset-6-command.length >= 0 ? {...e, offset: e.offset-6-command.length} : null)
     .filter(Boolean)
 
     if (ctx.message.entities) chat.commands_entities.set(command, entities)
