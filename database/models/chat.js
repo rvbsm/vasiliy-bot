@@ -3,7 +3,7 @@ const { Schema } = require("mongoose")
 const ChatSchema = new Schema({
   id: { type: Number, required: true, unique: true },
   type: { type: String, required: true },
-  username: { type: String, required: false, unique: true },
+  username: { type: String, required: false },
   title: { type: String, required: true },
   language_code: String,
   commands_response: { type: Map, of: String },
