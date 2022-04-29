@@ -64,11 +64,10 @@ bot.context.db = db
 db.connection.once("open", async () => {
   console.log("Connected to database")
   if (process.env.BOT_DOMAIN) {
-    bot.telegram.deleteWebhook()
     bot.launch({
       webhook: {
         domain: process.env.BOT_DOMAIN,
-        path: '/bot'+process.env.BOT_TOKEN,
+        hookPath: "/bot" + process.env.BOT_TOKEN,
         port: process.env.PORT || 8443,
       },
     }).then(() => console.log("Bot started webhook"))

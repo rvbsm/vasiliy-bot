@@ -4,9 +4,7 @@ module.exports = async ctx => {
     last_name : ctx.message.new_chat_participant ? ctx.message.new_chat_participant.last_name || "" : ctx.from.last_name || "",
     username : ctx.message.new_chat_participant ? ctx.message.new_chat_participant.username || "" : ctx.from.username || "",
     id : ctx.message.new_chat_participant ? ctx.message.new_chat_participant.id : ctx.from.id,
-    first: ctx.message.text.split(' ')[1] || "",
-    second: ctx.message.text.split(' ')[2] || "",
-    third: ctx.message.text.split(' ')[3] || "",
+    args : ctx.message.text.split(' ').slice(1) || [],
   }
 
   const chat = await ctx.db.chat.findOne({ id: ctx.chat.id })
