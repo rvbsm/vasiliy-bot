@@ -8,9 +8,11 @@ const cfg = require("./config")
 
 
 const bot = new Telegraf(process.env.BOT_TOKEN, { telegram: { webhookReply: false }, handleTimeout: 1 })
-.use((_, next) => {
-  next().catch((error) => {
-    return console.log(error)
+.use((ctx, next) => {
+  next().catch(async (error) => {
+    return await bot.telegram.sendMessage(cfg.log_channel_id,
+      `[<code>${ctx.from.id}</code>] ${ctx.message ? ctx.message.text : ctx.callbackQuery.data}\n\n<i>${error.toString()}</i>`,
+      { parse_mode: "HTML" })
   })
   return true
 })

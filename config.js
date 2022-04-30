@@ -10,5 +10,6 @@ module.exports = {
     "edited_channel_post", 
     "poll", 
     "chat_join_request"
-  ]
+  ],
+  log_channel_id: process.env.LOG_CHANNEL_ID,
 }
