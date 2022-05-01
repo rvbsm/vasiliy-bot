@@ -1,4 +1,4 @@
 module.exports = {
-  user: require('./user'),
-  chat: require('./chat'),
-}
+  user: require("./user"),
+  chat: require("./chat"),
+};

@@ -1,9 +1,9 @@
 language_name: 🇺🇸 English
 cmd:
   start:
-    msg: 
-      private: Add me to your group!
-      group: Hi!
+    msg:
+      private: <b>Add me to your group!</b>
+      group: <b>Hi!</b>
     btn:
       add: Add
       support: Support
@@ -17,13 +17,27 @@ cmd:
       /${list} - list of commands
   invite:
     msg: |
-      Hello, $first_name!
+      <b>Hello, $first_name!</b>
+  everyone:
+    msg: |
+      <b>Go here, dude!</b> 🤖
+      
+      /ping - <i>to enable/disable notifications</i>
+  ping:
+    msg: "[<code>${id}</code>] <b>Notifications:</b> <code>${ping}</code>"
+  info:
+    msg: |
+      👤 <b>Name:</b> <i>${name}</i>
+      🆔 <b>ID:</b> <code>${id}</code>
+      🌐 <b>Language:</b> <i>${lang}</i>
+      ✍️ <b>Total messages:</b> ${total} (<i>${total_perc}% of total</i>)
+      ${icon} <b>Notifications:</b> <code>${ping}</code>
   list:
-    msg: "List of commands:"
-    empty: "No commands available"
+    msg: <b>List of commands:</b>
+    empty: <b>No commands available</b>
   add:
-    success: Command <code>!${cmd}</code> added
+    success: <b>Command <code>!${cmd}</code> added</b>
     error: /${cmd} <b>command</b> <b>message</b>
   rem:
-    success: Command <code>!${cmd}</code> removed
+    success: <b>Command <code>!${cmd}</code> removed</b>
     error: /${cmd} <b>command</b> <i>or no command in the list</i>
