@@ -9,10 +9,12 @@ const cfg = require("./config")
 
 const bot = new Telegraf(process.env.BOT_TOKEN, { telegram: { webhookReply: false }, handleTimeout: 1 })
 .use((ctx, next) => {
-  next().catch(async (error) => {
-    return await bot.telegram.sendMessage(cfg.log_channel_id,
-      `[<code>${ctx.from.id}</code>] ${ctx.message ? ctx.message.text : ctx.callbackQuery.data}\n\n<i>${error.toString()}</i>`,
-      { parse_mode: "HTML" })
+  next().catch(async err => {
+    if (cfg.log_channel_id)
+      return await bot.telegram.sendMessage(cfg.log_channel_id,
+        `[<code>${ctx.from.id}</code>] ${ctx.message ? ctx.message.text : ctx.callbackQuery.data}\n\n<i>${err.toString()}</i>`,
+        { parse_mode: "HTML" }).catch(err => console.log(err))
+    else return console.log(err)
   })
   return true
 })
@@ -36,7 +38,8 @@ bot.use(Composer.groupChat(async (ctx, next) => {
   await next(ctx)
 }))
 .use(Composer.privateChat(async (ctx, next) => {
-  await updateUser(ctx)
+  const user = await updateUser(ctx)
+  user.save()
   await next(ctx)
 }))
   
