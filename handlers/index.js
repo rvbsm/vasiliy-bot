@@ -7,5 +7,5 @@ module.exports = {
   handleListCommands: require("./list-commands"),
   handleEveryone: require("./everyone"),
   handlePing: require("./ping"),
-  handleInfo: require("./info")
+  handleInfo: require("./info"),
 };

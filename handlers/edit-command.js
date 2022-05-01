@@ -14,7 +14,7 @@ module.exports = async (ctx) => {
     .split(" ")
     .slice(2)
     .join(" ")
-    .replace(/_\*\[]()~`>#\+-=\|\{}.!/g, "\\$&");
+    .replace(/_\*\[\]\(\)~`>#\+\-=\|\{\}.!/g, "\\$&");
 
   if (action === "add") {
     if (!text)

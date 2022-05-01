@@ -9,7 +9,12 @@ module.exports = async (ctx) => {
       id: user.id,
       lang: ctx.from.language_code,
       total: chat ? user.total_messages.get(chat._id) : 0,
-      total_perc: chat ? ((user.total_messages.get(chat._id) || 0)/chat.total_messages*100).toFixed(2) : 0,
+      total_perc: chat
+        ? (
+            ((user.total_messages.get(chat._id) || 0) / chat.total_messages) *
+            100
+          ).toFixed(2)
+        : 0,
       icon: user.ping ? "🔔" : "🔕",
       ping: user.ping,
     })

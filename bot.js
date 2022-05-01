@@ -55,8 +55,10 @@ bot.use(
       ctx.i18n.locale(chat.language_code);
     }
     if (!chat.users.includes(user._id)) chat.users.push(user._id);
-    if (!user.total_messages.get(chat._id)) user.total_messages.set(chat._id, 1);
-    else user.total_messages.set(chat._id, user.total_messages.get(chat._id) + 1);
+    if (!user.total_messages.get(chat._id))
+      user.total_messages.set(chat._id, 1);
+    else
+      user.total_messages.set(chat._id, user.total_messages.get(chat._id) + 1);
     chat.total_messages += 1;
     user.save();
     chat.save();
@@ -109,9 +111,12 @@ db.connection.once("open", async () => {
           domain: process.env.BOT_DOMAIN,
           hookPath: "/bot" + process.env.BOT_TOKEN,
           port: process.env.PORT || 8443,
-          dropPendingUpdates: true
+          dropPendingUpdates: true,
         },
       })
       .then(() => console.log("Bot started webhook"));
-  } else bot.launch({ dropPendingUpdates: true }).then(() => console.log("Bot started polling"));
+  } else
+    bot
+      .launch({ dropPendingUpdates: true })
+      .then(() => console.log("Bot started polling"));
 });

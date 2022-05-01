@@ -5,6 +5,9 @@ module.exports = async (ctx) => {
   user.ping = !user.ping;
   user.save();
   return await ctx.replyWithHTML(
-    ctx.i18n.t("cmd.ping.msg", { id: user.id, ping: user.ping ? "true" : "false" })
+    ctx.i18n.t("cmd.ping.msg", {
+      id: user.id,
+      ping: user.ping ? "true" : "false",
+    })
   );
 };
